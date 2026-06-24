@@ -138,9 +138,10 @@ const ProgressPreview = () => (
 );
 
 const ModalPreviewInner = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   return (
     <div className={styles.previewBlock}>
+      <Button onClick={() => setOpen(true)}>Open Modal</Button>
       <Modal open={open} onClose={() => setOpen(false)} title="Hello">
         <p>This is a modal dialog.</p>
       </Modal>
@@ -263,6 +264,8 @@ const ShowcasePage = () => {
         const idx = parseInt(hash.replace("#", ""), 10);
         if (!isNaN(idx) && idx >= 0 && idx < showcaseComponents.length) {
           setActiveIndex(idx);
+        } else {
+          setActiveIndex(0);
         }
       }
     };

@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     const handleHash = () => {
-      setShowingShowcase(window.location.hash === "#showcase");
+      setShowingShowcase(window.location.hash !== "" && window.location.hash !== "#home");
     };
     handleHash();
     window.addEventListener("hashchange", handleHash);
