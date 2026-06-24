@@ -70,8 +70,10 @@ const Projects = () => {
               </div>
               <div className={styles.projectButtons}>
                 {project.buttons?.map((button) => (
-                  <Button key={button.text} href={button.link} target="_blank" variant="primary">
-                    {button.text}
+                  <Button key={button.text} variant="primary" asChild>
+                    <a href={button.link} target="_blank" rel="noopener noreferrer">
+                      {button.text}
+                    </a>
                   </Button>
                 ))}
               </div>
