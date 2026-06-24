@@ -17,23 +17,6 @@ html {
   scroll-behavior: smooth;
 }
 
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--uzi-accent);
-  color: white;
-  padding: 8px 16px;
-  z-index: 100;
-  transition: top 0.2s ease;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.skip-link:focus {
-  top: 0;
-}
-
 a {
   font-weight: 500;
   color: #646cff;
@@ -49,6 +32,10 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+body > *:first-child {
+  margin-top: 0;
 }
 
 h1 {

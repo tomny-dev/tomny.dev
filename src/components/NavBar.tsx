@@ -4,6 +4,9 @@ export default function NavBar() {
   return (
     <>
       <style>{`
+        body > *:first-child {
+          margin-top: 0 !important;
+        }
         .tomny-topbar [class*="topBarInner"] {
           padding-top: 0 !important;
           padding-bottom: 0 !important;
