@@ -1,24 +1,6 @@
-import { Avatar, AvatarImage, AvatarFallback, Pill, Card } from "@tomny-dev/uzi";
+import { Avatar, AvatarImage, AvatarFallback, Card } from "@tomny-dev/uzi";
 import styles from "./About.module.css";
-
-const techChips = [
-  "React",
-  "TypeScript",
-  "Vite",
-  "CSS Modules",
-  "Radix UI",
-  "@tomny-dev/uzi",
-  "Node.js",
-  "Unity / Godot",
-  "EOSIO",
-  "Web3",
-  "DevOps",
-  "AI",
-  "Cloud Computing",
-  "Python",
-  "Homelab",
-  "Automation",
-];
+import { Github } from "lucide-react";
 
 const About = () => {
   return (
@@ -30,32 +12,34 @@ const About = () => {
             <AvatarFallback>T</AvatarFallback>
           </Avatar>
           <div className={styles.content}>
-            <h2 className={styles.title}>About Me</h2>
+            <h2 className={styles.title}>Hey, I&rsquo;m Tom!</h2>
+            <p className={styles.subtitle}>Full Stack Software Developer</p>
             <p className={styles.description}>
-              Hey, I&rsquo;m Tom! Nice to meet you! &ldquo;I&rsquo;m a Full Stack Software Developer
-              passionate about building systems from the ground up and constantly pushing into new
-              technical territory. My curiosity drives me to explore emerging technologies and
-              frameworks that challenge my thinking and expand my toolkit.&rdquo;
-            </p>
-            <p className={styles.description}>
-              Lately, I&rsquo;ve been diving into areas like{" "}
-              <strong>game development</strong>, <strong>blockchain</strong> systems, and experimenting
-              with{" "}
-              <strong>AI and machine learning</strong>. I enjoy turning complex ideas into clean,
-              functional products &mdash; and I&rsquo;m always learning, always shipping.
+              I build systems from the ground up and love exploring new technical territory.
+              Lately, I&rsquo;ve been diving into <strong>game development</strong>,{" "}
+              <strong>blockchain</strong> systems, and <strong>AI/ML</strong>. I enjoy turning
+              complex ideas into clean, functional products — and I&rsquo;m always learning,
+              always shipping.
             </p>
             <p className={styles.description}>
               I&rsquo;m also the creator of{" "}
-              <a href="https://github.com/tomny-dev/uzi" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://github.com/tomny-dev/uzi"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <strong>@tomny-dev/uzi</strong>
               </a>{" "}
-              &mdash; a lightweight, rapid-fire React component library built on Radix UI primitives.
+              — a lightweight React component library built on Radix UI primitives.
             </p>
-            <h3 className={styles.subtitle}>Current Interests &amp; Tools</h3>
-            <div className={styles.pills}>
-              {techChips.map((chip, i) => (
-                <Pill key={i} tone="neutral" size="md">{chip}</Pill>
-              ))}
+            <div className={styles.cta}>
+              <a
+                href="https://github.com/tomny-dev"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github size={18} /> View my GitHub
+              </a>
             </div>
           </div>
         </div>
