@@ -67,3 +67,25 @@
     text-align: left;
   }
 }
+
+@media (max-width: 767px) {
+  .section {
+    padding: 1.5rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .header {
+    gap: 1rem;
+  }
+}

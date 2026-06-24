@@ -1,4 +1,4 @@
-import { Avatar, AvatarImage, AvatarFallback, Card } from "@tomny-dev/uzi";
+import { Avatar, AvatarImage, AvatarFallback, Card, Button } from "@tomny-dev/uzi";
 import styles from "./About.module.css";
 import { Github } from "lucide-react";
 
@@ -23,13 +23,15 @@ const About = () => {
                 always shipping.
               </p>
               <div className={styles.cta}>
-                <a
-                  href="https://github.com/tomny-dev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github size={18} /> View my GitHub
-                </a>
+                <Button variant="primary" asChild>
+                  <a
+                    href="https://github.com/tomny-dev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github size={18} /> View my GitHub
+                  </a>
+                </Button>
               </div>
             </div>
           </div>
