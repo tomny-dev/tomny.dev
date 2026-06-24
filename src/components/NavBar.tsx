@@ -1,15 +1,23 @@
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+import { TopBar } from "@tomny-dev/uzi";
+import { Menu, X, Sparkles } from "lucide-react";
 
-export default function NavBar() {
+interface NavBarProps {
+  onShowcaseClick?: () => void;
+}
+
+export default function NavBar({ onShowcaseClick }: NavBarProps) {
   return (
-    <AppBar position="sticky">
-      <Toolbar sx={{ justifyContent: "center" }}>
-        <Typography variant="h6" noWrap component="div">
-          tomny.dev
-        </Typography>
-      </Toolbar>
-    </AppBar>
+    <TopBar
+      brand="tomny.dev"
+      brandingLocation="center"
+      showThemeToggle
+      start={<Menu size={20} />}
+      center={onShowcaseClick ? (
+        <button onClick={onShowcaseClick} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "0.375rem", color: "inherit", fontSize: "inherit" }}>
+          <Sparkles size={16} /> Showcase
+        </button>
+      ) : undefined}
+      actions={<X size={20} />}
+    />
   );
 }

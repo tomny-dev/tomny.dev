@@ -1,15 +1,32 @@
+import { useState, useEffect } from "react";
 import Navbar from "./components/NavBar";
 import About from "./components/About";
 import Projects from "./components/Projects";
-import { CssBaseline } from "@mui/material";
+import ShowcasePage from "./components/Showcase";
 
 function App() {
+  const [showingShowcase, setShowingShowcase] = useState(false);
+
+  useEffect(() => {
+    const handleHash = () => {
+      setShowingShowcase(window.location.hash === "#showcase");
+    };
+    handleHash();
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, []);
+
   return (
     <>
-      <CssBaseline />
-      <Navbar />
-      <About />
-      <Projects />
+      <Navbar onShowcaseClick={() => (window.location.hash = "#showcase")} />
+      {!showingShowcase ? (
+        <>
+          <About />
+          <Projects />
+        </>
+      ) : (
+        <ShowcasePage />
+      )}
     </>
   );
 }

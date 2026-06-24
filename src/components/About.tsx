@@ -1,67 +1,67 @@
-import {
-  Box,
-  Container,
-  Typography,
-  Paper,
-  Chip,
-  Stack,
-  Avatar,
-} from "@mui/material";
+import { Avatar, AvatarImage, AvatarFallback, Pill, Card } from "@tomny-dev/uzi";
+import styles from "./About.module.css";
+
+const techChips = [
+  "React",
+  "TypeScript",
+  "Vite",
+  "CSS Modules",
+  "Radix UI",
+  "@tomny-dev/uzi",
+  "Node.js",
+  "Unity / Godot",
+  "EOSIO",
+  "Web3",
+  "DevOps",
+  "AI",
+  "Cloud Computing",
+  "Python",
+  "Homelab",
+  "Automation",
+];
 
 const About = () => {
   return (
-    <Box sx={{ py: 8, pt: 0, backgroundColor: "background.default" }}>
-      <Container maxWidth="md">
-        <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
-          <Typography variant="h4" component="h2" gutterBottom>
-            About Me
-          </Typography>
-          <Avatar
-            src="/turtle.jpg" // Replace with your image
-            alt="Tom"
-            sx={{
-              width: { xs: 120, md: 160 },
-              height: { xs: 120, md: 160 },
-              mx: "auto",
-            }}
-          />
-          <Typography variant="body1" color="text.secondary" paragraph>
-            Hey, I'm Tom! Nice to meet you! 👋
-          </Typography>
-          <Typography variant="body1" color="text.secondary" paragraph>
-            I'm a Full Stack Software Developer passionate about building systems from the ground up
-            and constantly pushing into new technical territory. My curiosity
-            drives me to explore emerging technologies and frameworks that
-            challenge my thinking and expand my toolkit.
-          </Typography>
-          <Typography variant="body1" color="text.secondary" paragraph>
-            Lately, I've been diving into areas like{" "}
-            <strong>game development</strong>, <strong>blockchain</strong>{" "}
-            systems, and experimenting with{" "}
-            <strong>AI and machine learning</strong>. I enjoy turning complex
-            ideas into clean, functional products — and I'm always learning,
-            always shipping.
-          </Typography>
-          <Typography variant="subtitle1" sx={{ mt: 2, fontWeight: 500 }}>
-            Current Interests & Tools
-          </Typography>
-          <Stack direction="row" spacing={1} flexWrap="wrap" mt={1}>
-            <Chip label="React" />
-            <Chip label="TypeScript" />
-            <Chip label="Node.js" />
-            <Chip label="Unity / Godot" />
-            <Chip label="EOSIO" />
-            <Chip label="Web3" />
-            <Chip label="DevOps" />
-            <Chip label="AI" />
-            <Chip label="Cloud Computing" />
-            <Chip label="Python" />
-            <Chip label="Homelab" />
-            <Chip label="Automation" />
-          </Stack>
-        </Paper>
-      </Container>
-    </Box>
+    <section className={styles.section}>
+      <Card tone="default" padding="lg">
+        <div className={styles.header}>
+          <Avatar size="lg">
+            <AvatarImage src="/turtle.jpg" alt="Tom" />
+            <AvatarFallback>T</AvatarFallback>
+          </Avatar>
+          <div className={styles.content}>
+            <h2 className={styles.title}>About Me</h2>
+            <p className={styles.description}>
+              Hey, I&rsquo;m Tom! Nice to meet you! &ldquo;I&rsquo;m a Full Stack Software Developer
+              passionate about building systems from the ground up and constantly pushing into new
+              technical territory. My curiosity drives me to explore emerging technologies and
+              frameworks that challenge my thinking and expand my toolkit.&rdquo;
+            </p>
+            <p className={styles.description}>
+              Lately, I&rsquo;ve been diving into areas like{" "}
+              <strong>game development</strong>, <strong>blockchain</strong> systems, and experimenting
+              with{" "}
+              <strong>AI and machine learning</strong>. I enjoy turning complex ideas into clean,
+              functional products &mdash; and I&rsquo;m always learning, always shipping.
+            </p>
+            <p className={styles.description}>
+              I&rsquo;m also the creator of{" "}
+              <a href="https://github.com/tomny-dev/uzi" target="_blank" rel="noopener noreferrer">
+                <strong>@tomny-dev/uzi</strong>
+              </a>{" "}
+              &mdash; a lightweight, rapid-fire React component library built on Radix UI primitives.
+              This very site showcases what uzi can build.
+            </p>
+            <h3 className={styles.subtitle}>Current Interests &amp; Tools</h3>
+            <div className={styles.pills}>
+              {techChips.map((chip, i) => (
+                <Pill key={i} tone="neutral" size="md">{chip}</Pill>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Card>
+    </section>
   );
 };
 

@@ -1,16 +1,14 @@
+import { Card, Button, Pill } from "@tomny-dev/uzi";
+import styles from "./Projects.module.css";
 import {
-  Box,
-  Container,
-  Grid,
-  Typography,
-  Card,
-  CardContent,
-  CardMedia,
-  Chip,
-  Button,
-  Stack,
-  Paper,
-} from "@mui/material";
+  Package,
+  Github,
+  ExternalLink,
+  Rocket,
+  Layers,
+  Palette,
+  LayoutGrid,
+} from "lucide-react";
 
 const projects = [
   {
@@ -40,15 +38,15 @@ const projects = [
   {
     title: "My Portfolio Website",
     description:
-      "This website is made from scratch with React, TypeScript, and Vite. This site uses styled components from Material UI and is hosted using Cloudflare Pages.",
+      "This website is built with React, TypeScript, Vite, and the @tomny-dev/uzi component library — serving as a live showcase of what uzi can do.",
     technologies: [
       "React",
       "TypeScript",
       "Vite",
-      "Website",
+      "@tomny-dev/uzi",
+      "CSS Modules",
       "Cloudflare Pages",
       "GitHub",
-      "Javascript",
       "Node.js",
     ],
     image: "/portfolio.jpg",
@@ -59,64 +57,99 @@ const projects = [
   },
 ];
 
+const features = [
+  {
+    icon: <Package size={24} />,
+    title: "Button Variants",
+    description: "primary, secondary, outline, ghost, destructive, and link styles.",
+    code: '<Button variant="primary">Click me</Button>',
+  },
+  {
+    icon: <Layers size={24} />,
+    title: "Card Tones",
+    description: "default, muted, and contrast tones with configurable padding.",
+    code: '<Card tone="muted" padding="md">Content here</Card>',
+  },
+  {
+    icon: <Palette size={24} />,
+    title: "Pill Colors",
+    description: "neutral, success, warning, info, and danger tones for status badges.",
+    code: '<Pill tone="success" size="md">Active</Pill>',
+  },
+  {
+    icon: <LayoutGrid size={24} />,
+    title: "TopBar Layout",
+    description: "Three-column navbar with brand, center content, and actions.",
+    code: '<TopBar brand="my-app" showThemeToggle />',
+  },
+];
+
 const Projects = () => {
   return (
-    <Box sx={{ py: 8, pt: 0, backgroundColor: "background.default" }}>
-      <Container maxWidth="md">
-        <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
-          <Typography variant="h4" component="h2" gutterBottom>
-            Featured Projects
-          </Typography>
-          <Grid container spacing={4}>
-            {projects.map((project) => (
-              <Card sx={{ height: "100%", width: "100%" }}>
-                <CardMedia
-                  component="img"
-                  image={project.image}
-                  alt={project.title}
-                  sx={{
-                    width: "100%",
-                    height: { xs: 200, md: 400 },
-                    objectFit: "cover", // Ensures the image fills the space while maintaining its aspect ratio
-                    objectPosition: "center", // Centers the image in the available space
-                  }}
-                />
-                <CardContent>
-                  <Typography variant="h5" component="div" gutterBottom>
-                    {project.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary" paragraph>
-                    {project.description}
-                  </Typography>
-                  <Stack direction="row" spacing={1} flexWrap="wrap" mt={1}>
-                    {project.technologies.map((tech, i) => (
-                      <Chip
-                        key={i}
-                        label={tech}
-                        variant="outlined"
-                        size="small"
-                      />
-                    ))}
-                  </Stack>
-                </CardContent>
-                {project.buttons
-                  ? project.buttons.map((button) => (
-                      <Button
-                        href={button.link}
-                        target="_blank"
-                        variant="contained"
-                        sx={{ margin: 2 }}
-                      >
-                        {button.text}
-                      </Button>
-                    ))
-                  : null}
-              </Card>
-            ))}
-          </Grid>
-        </Paper>
-      </Container>
-    </Box>
+    <section className={styles.section}>
+      {/* uzi Features Showcase */}
+      <div className={styles.showcase}>
+        <h2 className={styles.showcaseTitle}>
+          <Rocket size={28} /> Built with @tomny-dev/uzi
+        </h2>
+        <p className={styles.showcaseSubtitle}>
+          This site showcases the rapid-fire React component library I built. Here are some of its features:
+        </p>
+        <div className={styles.featuresGrid}>
+          {features.map((feature, i) => (
+            <Card key={i} tone="muted" padding="md" interactive>
+              <div className={styles.featureIcon}>{feature.icon}</div>
+              <h3 className={styles.featureTitle}>{feature.title}</h3>
+              <p className={styles.featureDesc}>{feature.description}</p>
+              <pre className={styles.codeSnippet}>{feature.code}</pre>
+            </Card>
+          ))}
+        </div>
+        <div className={styles.quickstart}>
+          <h3>Quick Start</h3>
+          <pre className={styles.installCode}>pnpm add @tomny-dev/uzi</pre>
+          <p>
+            <a href="https://github.com/tomny-dev/uzi" target="_blank" rel="noopener noreferrer">
+              <Github size={16} /> GitHub
+            </a>
+            {" | "}
+            <a href="https://www.npmjs.com/package/@tomny-dev/uzi" target="_blank" rel="noopener noreferrer">
+              <ExternalLink size={16} /> npm
+            </a>
+          </p>
+        </div>
+      </div>
+
+      {/* Projects */}
+      <div className={styles.projects}>
+        <h2 className={styles.title}>Featured Projects</h2>
+        {projects.map((project, i) => (
+          <Card key={i} tone="default" padding="none" interactive>
+            <img
+              src={project.image}
+              alt={project.title}
+              className={styles.projectImage}
+            />
+            <div className={styles.projectContent}>
+              <h3 className={styles.projectTitle}>{project.title}</h3>
+              <p className={styles.projectDesc}>{project.description}</p>
+              <div className={styles.techPills}>
+                {project.technologies.map((tech, j) => (
+                  <Pill key={j} tone="neutral" size="sm">{tech}</Pill>
+                ))}
+              </div>
+              <div className={styles.projectButtons}>
+                {project.buttons?.map((button) => (
+                  <Button key={button.text} href={button.link} target="_blank" variant="primary">
+                    {button.text}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </section>
   );
 };
 
