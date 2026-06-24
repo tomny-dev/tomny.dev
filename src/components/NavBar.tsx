@@ -11,10 +11,6 @@ export default function NavBar() {
           padding-top: 0 !important;
           padding-bottom: 0 !important;
         }
-        .tomny-topbar [class*="topBarBrand"] {
-          font-size: 1rem !important;
-          font-weight: 600 !important;
-        }
       `}</style>
       <div className="tomny-topbar">
         <TopBar
