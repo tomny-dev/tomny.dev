@@ -22,17 +22,6 @@ const About = () => {
                 complex ideas into clean, functional products — and I&rsquo;m always learning,
                 always shipping.
               </p>
-              <p className={styles.description}>
-                I&rsquo;m also the creator of{" "}
-                <a
-                  href="https://github.com/tomny-dev/uzi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <strong>@tomny-dev/uzi</strong>
-                </a>{" "}
-                — a lightweight React component library built on Radix UI primitives.
-              </p>
               <div className={styles.cta}>
                 <a
                   href="https://github.com/tomny-dev"
