@@ -3,6 +3,12 @@
   background-color: var(--uzi-background);
 }
 
+.container {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
 .header {
   display: flex;
   flex-direction: column;
