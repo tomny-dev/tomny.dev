@@ -50,7 +50,6 @@ const About = () => {
                 <strong>@tomny-dev/uzi</strong>
               </a>{" "}
               &mdash; a lightweight, rapid-fire React component library built on Radix UI primitives.
-              This very site showcases what uzi can build.
             </p>
             <h3 className={styles.subtitle}>Current Interests &amp; Tools</h3>
             <div className={styles.pills}>
