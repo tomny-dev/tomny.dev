@@ -9,18 +9,10 @@
   padding: 0 1.5rem;
 }
 
-.avatar {
-  display: block;
-  margin: 0 auto 1.5rem;
-  width: 120px !important;
-  height: 120px !important;
-}
-
-@media (min-width: 768px) {
-  .avatar {
-    width: 160px !important;
-    height: 160px !important;
-  }
+.avatarWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
 }
 
 .title {

@@ -7,10 +7,24 @@ const About = () => {
     <section className={styles.section}>
       <div className={styles.container}>
         <Card tone="default" padding="lg">
-          <Avatar size="lg" className={styles.avatar}>
-            <AvatarImage src="/turtle.jpg" alt="Tom" />
-            <AvatarFallback>T</AvatarFallback>
-          </Avatar>
+          <style>{`
+            .about-avatar {
+              width: 120px !important;
+              height: 120px !important;
+            }
+            @media (min-width: 768px) {
+              .about-avatar {
+                width: 160px !important;
+                height: 160px !important;
+              }
+            }
+          `}</style>
+          <div className={styles.avatarWrapper}>
+            <Avatar size="lg" className="about-avatar">
+              <AvatarImage src="/turtle.jpg" alt="Tom" />
+              <AvatarFallback>T</AvatarFallback>
+            </Avatar>
+          </div>
           <h2 className={styles.title}>Hey, I&rsquo;m Tom!</h2>
           <p className={styles.subtitle}>Full Stack Software Developer</p>
           <p className={styles.description}>
