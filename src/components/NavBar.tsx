@@ -1,5 +1,4 @@
 import { TopBar } from "@tomny-dev/uzi";
-import { Menu, X } from "lucide-react";
 
 export default function NavBar() {
   return (
@@ -7,8 +6,6 @@ export default function NavBar() {
       brand="tomny.dev"
       brandingLocation="center"
       showThemeToggle
-      start={<Menu size={20} />}
-      actions={<X size={20} />}
     />
   );
 }
