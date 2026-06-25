@@ -1,4 +1,5 @@
 import { Card, Button, Pill } from "@tomny-dev/uzi";
+import { Github } from "lucide-react";
 import styles from "./Projects.module.css";
 
 const projects = [
@@ -61,7 +62,7 @@ const projects = [
     ],
     image: "/portfolio.jpg",
     buttons: [
-      { text: "Source Code", link: "https://github.com/tomny-dev/tomny.dev" },
+      { text: "GitHub", link: "https://github.com/tomny-dev/tomny.dev" },
       { text: "Deployed Site", link: "https://tomny.dev" },
     ],
   },
@@ -88,13 +89,17 @@ const Projects = () => {
                 ))}
               </div>
               <div className={styles.projectButtons}>
-                {project.buttons?.map((button) => (
-                  <Button key={button.text} variant="primary" asChild>
-                    <a href={button.link} target="_blank" rel="noopener noreferrer">
-                      {button.text}
-                    </a>
-                  </Button>
-                ))}
+                {project.buttons?.map((button) => {
+                  const isGitHub = button.link.includes("github.com");
+                  return (
+                    <Button key={button.text} variant="primary" asChild>
+                      <a href={button.link} target="_blank" rel="noopener noreferrer">
+                        {isGitHub && <Github style={{ marginRight: "0.375rem", height: "1rem", width: "1rem" }} />}
+                        {button.text}
+                      </a>
+                    </Button>
+                  );
+                })}
               </div>
             </div>
           </Card>
