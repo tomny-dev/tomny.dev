@@ -8,6 +8,7 @@ export default function NavBar() {
         brand="tomny.dev"
         brandingLocation="center"
         showThemeToggle
+        innerClassName={styles.topBarInner}
       />
     </div>
   );
