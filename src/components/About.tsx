@@ -7,20 +7,8 @@ const About = () => {
     <section className={styles.section}>
       <div className={styles.container}>
         <Card tone="default" padding="lg">
-          <style>{`
-            .about-avatar {
-              width: 120px !important;
-              height: 120px !important;
-            }
-            @media (min-width: 768px) {
-              .about-avatar {
-                width: 160px !important;
-                height: 160px !important;
-              }
-            }
-          `}</style>
           <div className={styles.avatarWrapper}>
-            <Avatar size="lg" className="about-avatar">
+            <Avatar size="lg" className={styles.avatar}>
               <AvatarImage src="/turtle.jpg" alt="Tom" />
               <AvatarFallback>T</AvatarFallback>
             </Avatar>

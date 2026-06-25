@@ -73,7 +73,7 @@ const Projects = () => {
       <div className={styles.projects}>
         <h2 className={styles.title}>Featured Projects</h2>
         {projects.map((project, i) => (
-          <Card key={i} tone="default" padding="none" interactive className={styles.projectCard}>
+          <Card key={i} tone="default" padding="none" className={styles.projectCard}>
             <img
               src={project.image}
               alt={project.title}

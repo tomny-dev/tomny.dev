@@ -1,24 +1,14 @@
 import { TopBar } from "@tomny-dev/uzi";
+import styles from "./NavBar.module.css";
 
 export default function NavBar() {
   return (
-    <>
-      <style>{`
-        [data-uzi-topbar] {
-          margin: 0 !important;
-          padding: 0 !important;
-        }
-        [data-uzi-topbar] > * {
-          margin: 0 !important;
-        }
-      `}</style>
-      <div data-uzi-topbar>
-        <TopBar
-          brand="tomny.dev"
-          brandingLocation="center"
-          showThemeToggle
-        />
-      </div>
-    </>
+    <div className={styles.topBar}>
+      <TopBar
+        brand="tomny.dev"
+        brandingLocation="center"
+        showThemeToggle
+      />
+    </div>
   );
 }
