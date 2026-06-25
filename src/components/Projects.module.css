@@ -64,6 +64,12 @@
   gap: 0.75rem;
 }
 
+.githubIcon {
+  margin-right: 0.375rem;
+  height: 1rem;
+  width: 1rem;
+}
+
 @media (max-width: 767px) {
   .section {
     padding: 1.5rem 0;

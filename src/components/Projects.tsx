@@ -90,11 +90,14 @@ const Projects = () => {
               </div>
               <div className={styles.projectButtons}>
                 {project.buttons?.map((button) => {
-                  const isGitHub = button.link.includes("github.com");
+                  const isGitHub = (() => {
+                    try { return new URL(button.link).hostname.includes("github.com"); }
+                    catch { return false; }
+                  })();
                   return (
-                    <Button key={button.text} variant="primary" asChild>
+                    <Button key={button.link} variant="primary" asChild>
                       <a href={button.link} target="_blank" rel="noopener noreferrer">
-                        {isGitHub && <Github style={{ marginRight: "0.375rem", height: "1rem", width: "1rem" }} />}
+                        {isGitHub && <Github className={styles.githubIcon} />}
                         {button.text}
                       </a>
                     </Button>
