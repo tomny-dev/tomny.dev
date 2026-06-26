@@ -1,6 +1,5 @@
 import { Card, Button, Pill } from "@tomny-dev/uzi";
 import { Github } from "lucide-react";
-import styles from "./Projects.module.css";
 
 const projects = [
   {
@@ -70,25 +69,27 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section className={styles.section}>
-      <div className={styles.projects}>
-        <h2 className={styles.title}>Featured Projects</h2>
+    <section style={{ padding: "2rem 0", backgroundColor: "var(--uzi-background)" }}>
+      <div style={{ maxWidth: "64rem", margin: "0 auto", padding: "0 1.5rem" }}>
+        <h2 style={{ fontSize: "2rem", marginBottom: "2.5rem", textAlign: "center" }}>
+          Featured Projects
+        </h2>
         {projects.map((project, i) => (
-          <Card key={i} tone="default" padding="none" className={styles.projectCard}>
+          <Card key={i} tone="default" padding="none" style={{ marginBottom: "2rem", transition: "transform 0.2s ease, box-shadow 0.2s ease" }}>
             <img
               src={project.image}
               alt={project.title}
-              className={styles.projectImage}
+              style={{ width: "100%", height: "16rem", objectFit: "cover", borderRadius: "8px 8px 0 0" }}
             />
-            <div className={styles.projectContent}>
-              <h3 className={styles.projectTitle}>{project.title}</h3>
-              <p className={styles.projectDesc}>{project.description}</p>
-              <div className={styles.techPills}>
+            <div style={{ padding: "1.5rem" }}>
+              <h3 style={{ fontSize: "1.25rem", marginBottom: "0.5rem" }}>{project.title}</h3>
+              <p style={{ color: "var(--uzi-text-secondary)", marginBottom: "1rem", lineHeight: "1.6" }}>{project.description}</p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginBottom: "1rem" }}>
                 {project.technologies.map((tech, j) => (
                   <Pill key={j} tone="neutral" size="sm">{tech}</Pill>
                 ))}
               </div>
-              <div className={styles.projectButtons}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
                 {project.buttons?.map((button) => {
                   const isGitHub = (() => {
                     try { return new URL(button.link).hostname.includes("github.com"); }
@@ -97,7 +98,7 @@ const Projects = () => {
                   return (
                     <Button key={button.link} variant="primary" asChild>
                       <a href={button.link} target="_blank" rel="noopener noreferrer">
-                        {isGitHub && <Github className={styles.githubIcon} />}
+                        {isGitHub && <Github style={{ marginRight: "0.375rem", height: "1rem", width: "1rem" }} />}
                         {button.text}
                       </a>
                     </Button>

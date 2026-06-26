@@ -8,7 +8,9 @@ import "@tomny-dev/uzi/styles.css";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ThemeProvider defaultTheme="system" defaultAccent="blue">
-      <App />
+      <div style={{ margin: "0 auto", textAlign: "center" }}>
+        <App />
+      </div>
     </ThemeProvider>
   </React.StrictMode>,
 );
