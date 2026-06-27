@@ -69,8 +69,7 @@ const projects = [
 ];
 
 function isGithubLink(url: string): boolean {
-  try { return new URL(url).hostname.includes("github.com"); }
-  catch { return false; }
+  return url.includes("github.com");
 }
 
 const Projects = () => {
@@ -84,7 +83,7 @@ const Projects = () => {
         </h2>
         {projects.map((project, i) => (
           <Card
-            key={project.title}
+            key={i}
             tone="default"
             padding="none"
             style={{
