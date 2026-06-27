@@ -1,5 +1,10 @@
-import { Avatar, AvatarImage, AvatarFallback, Card, Button } from "@tomny-dev/uzi";
+import { Avatar, AvatarImage, AvatarFallback, Card, Button, Pill } from "@tomny-dev/uzi";
 import { Github } from "lucide-react";
+
+const techPills = [
+  "React", "TypeScript", "Node.js", "Unity / Godot", "EOSIO",
+  "Web3", "DevOps", "AI", "Cloud Computing", "Python", "Homelab", "Automation",
+];
 
 const About = () => {
   return (
@@ -25,6 +30,14 @@ const About = () => {
             complex ideas into clean, functional products — and I&rsquo;m always learning,
             always shipping.
           </p>
+          <p style={{ color: "var(--uzi-text-secondary)", fontSize: "1rem", marginBottom: "0.75rem", textAlign: "center", fontWeight: 500 }}>
+            Current Interests & Tools
+          </p>
+          <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "0.5rem", marginBottom: "1.25rem" }}>
+            {techPills.map((tech) => (
+              <Pill key={tech} tone="neutral" size="sm">{tech}</Pill>
+            ))}
+          </div>
           <div style={{ display: "flex", justifyContent: "center", marginTop: "1.25rem" }}>
             <Button variant="primary" asChild>
               <a
