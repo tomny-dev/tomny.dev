@@ -1,4 +1,4 @@
-// src/main.tsx - @tomny-dev/uzi v0.2.3
+// src/main.tsx - @tomny-dev/uzi v0.2.3 (fixed)
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
