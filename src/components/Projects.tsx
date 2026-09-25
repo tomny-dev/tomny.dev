@@ -89,7 +89,7 @@ const Projects = () => {
   return (
     <section aria-label="Featured projects">
       <PageContainer maxWidth="md" className="portfolio-section">
-        <Surface padding="lg" bordered radius="lg">
+        <Surface level="subtle" padding="lg" radius="lg">
           <Stack gap="lg">
             <SectionHeader title="Featured Projects" />
 
