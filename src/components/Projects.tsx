@@ -1,18 +1,29 @@
-import {
-  Box,
-  Container,
-  Grid,
-  Typography,
-  Card,
-  CardContent,
-  CardMedia,
-  Chip,
-  Button,
-  Stack,
-  Paper,
-} from "@mui/material";
+import { Button, Card, Inline, PageContainer, Pill, SectionHeader, Stack } from "@tomny-dev/uzi";
+import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
+  {
+    title: "Uzi",
+    description:
+      "A lightweight React design system I built to standardize UI across my projects. Uzi provides reusable primitives, application scaffolding, responsive layouts, built-in theming, higher-level templates, Storybook documentation, and an MCP server that helps coding agents discover and use the component library consistently.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Radix UI",
+      "CSS Modules",
+      "Storybook",
+      "Vite",
+      "Design System",
+      "MCP",
+    ],
+    image: null,
+    showcaseLabel: "UZI",
+    showcaseCaption: null,
+    buttons: [
+      { text: "Source Code", link: "https://github.com/tomny-dev/uzi" },
+      { text: "View Storybook", link: "https://uzi-storybook.pages.dev" },
+    ],
+  },
   {
     title: "BlockchainRPG",
     description:
@@ -28,95 +39,125 @@ const projects = [
       "Full Stack",
     ],
     image: "/blockchainrpg.jpg",
+    showcaseLabel: null,
+    showcaseCaption: null,
     buttons: [{ text: "View Site", link: "https://blockchainrpg.io" }],
   },
   {
     title: "Tultr",
-    description: "A self hosted forum built with Flarum, MariaDB, and Docker.",
-    technologies: ["Flarum", "MariaDB", "Docker", "Blog", "Website"],
+    description:
+      "A modern game guides and knowledge platform built with Next.js and Uzi. Tultr combines structured game data, editorial content, and reusable search and discovery tooling in a modular application deployed on Cloudflare Workers with Workers Static Assets.",
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "@tomny-dev/uzi",
+      "Cloudflare Workers",
+      "Workers Static Assets",
+      "Game Guides",
+      "Content Platform",
+    ],
     image: "/tultr.jpg",
+    showcaseLabel: null,
+    showcaseCaption: null,
     buttons: [{ text: "View Site", link: "https://tultr.com" }],
   },
   {
-    title: "My Portfolio Website",
+    title: "tomny.dev",
     description:
-      "This website is made from scratch with React, TypeScript, and Vite. This site uses styled components from Material UI and is hosted using Cloudflare Pages.",
+      "My personal portfolio and a live production showcase for Uzi. Built as a lightweight React and TypeScript application with Vite, it demonstrates the design system in a real site while staying fast, responsive, theme-aware, and continuously deployed on Cloudflare Pages.",
     technologies: [
       "React",
       "TypeScript",
       "Vite",
-      "Website",
+      "@tomny-dev/uzi",
       "Cloudflare Pages",
-      "GitHub",
-      "Javascript",
-      "Node.js",
+      "Responsive UI",
+      "Open Source",
     ],
-    image: "/portfolio.jpg",
+    image: null,
+    showcaseLabel: "tomny.dev",
+    showcaseCaption: "PERSONAL PORTFOLIO",
     buttons: [
       { text: "Source Code", link: "https://github.com/tomny-dev/tomny.dev" },
-      { text: "Deployed Site", link: "https://tomny.dev" },
+      { text: "Visit Site", link: "https://tomny.dev" },
     ],
   },
 ];
 
 const Projects = () => {
   return (
-    <Box sx={{ py: 8, pt: 0, backgroundColor: "background.default" }}>
-      <Container maxWidth="md">
-        <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
-          <Typography variant="h4" component="h2" gutterBottom>
-            Featured Projects
-          </Typography>
-          <Grid container spacing={4}>
-            {projects.map((project) => (
-              <Card sx={{ height: "100%", width: "100%" }}>
-                <CardMedia
-                  component="img"
-                  image={project.image}
-                  alt={project.title}
-                  sx={{
-                    width: "100%",
-                    height: { xs: 200, md: 400 },
-                    objectFit: "cover", // Ensures the image fills the space while maintaining its aspect ratio
-                    objectPosition: "center", // Centers the image in the available space
-                  }}
-                />
-                <CardContent>
-                  <Typography variant="h5" component="div" gutterBottom>
-                    {project.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary" paragraph>
-                    {project.description}
-                  </Typography>
-                  <Stack direction="row" spacing={1} flexWrap="wrap" mt={1}>
-                    {project.technologies.map((tech, i) => (
-                      <Chip
-                        key={i}
-                        label={tech}
-                        variant="outlined"
-                        size="small"
-                      />
-                    ))}
-                  </Stack>
-                </CardContent>
-                {project.buttons
-                  ? project.buttons.map((button) => (
-                      <Button
-                        href={button.link}
-                        target="_blank"
-                        variant="contained"
-                        sx={{ margin: 2 }}
-                      >
-                        {button.text}
-                      </Button>
-                    ))
-                  : null}
-              </Card>
-            ))}
-          </Grid>
-        </Paper>
-      </Container>
-    </Box>
+    <section aria-label="Featured projects">
+      <PageContainer maxWidth="md" className="portfolio-section">
+        <Card padding="lg">
+          <Stack gap="lg">
+            <SectionHeader title="Featured Projects" />
+
+            <div className="projects-grid">
+              {projects.map((project) => (
+                <Card key={project.title} as="article" padding="none" className="project-card">
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="project-image"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="project-image project-showcase" aria-hidden="true">
+                      {project.showcaseCaption ? (
+                        <span className="project-showcase-caption">
+                          {project.showcaseCaption}
+                        </span>
+                      ) : null}
+                      <span className="project-showcase-label">{project.showcaseLabel}</span>
+                    </div>
+                  )}
+
+                  <div className="project-content">
+                    <Stack gap="md">
+                      <div>
+                        <h3 className="project-title">{project.title}</h3>
+                        <p className="project-description">{project.description}</p>
+                      </div>
+
+                      <Inline gap="sm" wrap>
+                        {project.technologies.map((tech) => (
+                          <Pill key={tech} size="sm">
+                            {tech}
+                          </Pill>
+                        ))}
+                      </Inline>
+
+                      <Inline gap="sm" wrap className="project-actions">
+                        {project.buttons.map((button) => {
+                          const isSourceCode = button.text === "Source Code";
+                          const Icon = isSourceCode ? Github : ExternalLink;
+
+                          return (
+                            <Button
+                              key={button.link}
+                              as="a"
+                              href={button.link}
+                              target="_blank"
+                              rel="noreferrer"
+                              variant={isSourceCode ? "outline" : "primary"}
+                            >
+                              <Icon size={16} aria-hidden="true" />
+                              {button.text}
+                            </Button>
+                          );
+                        })}
+                      </Inline>
+                    </Stack>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </Stack>
+        </Card>
+      </PageContainer>
+    </section>
   );
 };
 
