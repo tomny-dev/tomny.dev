@@ -2,7 +2,7 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-  Card,
+  Surface,
   Inline,
   PageContainer,
   Pill,
@@ -29,7 +29,7 @@ const About = () => {
   return (
     <section aria-label="About me">
       <PageContainer maxWidth="md" className="portfolio-section">
-        <Card padding="lg">
+        <Surface padding="lg" bordered radius="lg">
           <Stack gap="lg">
             <SectionHeader title="About Me" />
 
@@ -65,7 +65,7 @@ const About = () => {
               </Inline>
             </div>
           </Stack>
-        </Card>
+        </Surface>
       </PageContainer>
     </section>
   );
