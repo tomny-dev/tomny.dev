@@ -1,4 +1,4 @@
-import { Button, Card, Inline, PageContainer, Pill, SectionHeader, Stack } from "@tomny-dev/uzi";
+import { Button, Card, Inline, PageContainer, Pill, SectionHeader, Stack, Surface } from "@tomny-dev/uzi";
 import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
@@ -89,7 +89,7 @@ const Projects = () => {
   return (
     <section aria-label="Featured projects">
       <PageContainer maxWidth="md" className="portfolio-section">
-        <Card padding="lg">
+        <Surface padding="lg" bordered radius="lg">
           <Stack gap="lg">
             <SectionHeader title="Featured Projects" />
 
@@ -155,7 +155,7 @@ const Projects = () => {
               ))}
             </div>
           </Stack>
-        </Card>
+        </Surface>
       </PageContainer>
     </section>
   );
