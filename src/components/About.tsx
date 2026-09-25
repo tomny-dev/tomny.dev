@@ -29,7 +29,7 @@ const About = () => {
   return (
     <section aria-label="About me">
       <PageContainer maxWidth="md" className="portfolio-section">
-        <Surface padding="lg" bordered radius="lg">
+        <Surface level="subtle" padding="lg" radius="lg">
           <Stack gap="lg">
             <SectionHeader title="About Me" />
 
