@@ -1,16 +1,16 @@
 import Navbar from "./components/NavBar";
 import About from "./components/About";
 import Projects from "./components/Projects";
-import { CssBaseline } from "@mui/material";
 
 function App() {
   return (
-    <>
-      <CssBaseline />
+    <div className="portfolio-app">
       <Navbar />
-      <About />
-      <Projects />
-    </>
+      <main className="portfolio-main">
+        <About />
+        <Projects />
+      </main>
+    </div>
   );
 }
 

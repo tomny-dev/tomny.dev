@@ -1,67 +1,73 @@
 import {
-  Box,
-  Container,
-  Typography,
-  Paper,
-  Chip,
-  Stack,
   Avatar,
-} from "@mui/material";
+  AvatarFallback,
+  AvatarImage,
+  Card,
+  Inline,
+  PageContainer,
+  Pill,
+  SectionHeader,
+  Stack,
+} from "@tomny-dev/uzi";
+
+const interests = [
+  "React",
+  "TypeScript",
+  "Node.js",
+  "Unity / Godot",
+  "EOSIO",
+  "Web3",
+  "DevOps",
+  "AI",
+  "Cloud Computing",
+  "Python",
+  "Homelab",
+  "Automation",
+];
 
 const About = () => {
   return (
-    <Box sx={{ py: 8, pt: 0, backgroundColor: "background.default" }}>
-      <Container maxWidth="md">
-        <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
-          <Typography variant="h4" component="h2" gutterBottom>
-            About Me
-          </Typography>
-          <Avatar
-            src="/turtle.jpg" // Replace with your image
-            alt="Tom"
-            sx={{
-              width: { xs: 120, md: 160 },
-              height: { xs: 120, md: 160 },
-              mx: "auto",
-            }}
-          />
-          <Typography variant="body1" color="text.secondary" paragraph>
-            Hey, I'm Tom! Nice to meet you! 👋
-          </Typography>
-          <Typography variant="body1" color="text.secondary" paragraph>
-            I'm a Full Stack Software Developer passionate about building systems from the ground up
-            and constantly pushing into new technical territory. My curiosity
-            drives me to explore emerging technologies and frameworks that
-            challenge my thinking and expand my toolkit.
-          </Typography>
-          <Typography variant="body1" color="text.secondary" paragraph>
-            Lately, I've been diving into areas like{" "}
-            <strong>game development</strong>, <strong>blockchain</strong>{" "}
-            systems, and experimenting with{" "}
-            <strong>AI and machine learning</strong>. I enjoy turning complex
-            ideas into clean, functional products — and I'm always learning,
-            always shipping.
-          </Typography>
-          <Typography variant="subtitle1" sx={{ mt: 2, fontWeight: 500 }}>
-            Current Interests & Tools
-          </Typography>
-          <Stack direction="row" spacing={1} flexWrap="wrap" mt={1}>
-            <Chip label="React" />
-            <Chip label="TypeScript" />
-            <Chip label="Node.js" />
-            <Chip label="Unity / Godot" />
-            <Chip label="EOSIO" />
-            <Chip label="Web3" />
-            <Chip label="DevOps" />
-            <Chip label="AI" />
-            <Chip label="Cloud Computing" />
-            <Chip label="Python" />
-            <Chip label="Homelab" />
-            <Chip label="Automation" />
+    <section aria-label="About me">
+      <PageContainer maxWidth="md" className="portfolio-section">
+        <Card padding="lg">
+          <Stack gap="lg">
+            <SectionHeader title="About Me" />
+
+            <div className="about-layout">
+              <Avatar size="xl" className="about-avatar">
+                <AvatarImage src="/turtle.jpg" alt="Tom" />
+                <AvatarFallback>T</AvatarFallback>
+              </Avatar>
+
+              <Stack gap="md" className="about-copy">
+                <p>Hey, I'm Tom! Nice to meet you! 👋</p>
+                <p>
+                  I'm a Full Stack Software Developer passionate about building systems from the
+                  ground up and constantly pushing into new technical territory. My curiosity drives
+                  me to explore emerging technologies and frameworks that challenge my thinking and
+                  expand my toolkit.
+                </p>
+                <p>
+                  Lately, I've been diving into areas like <strong>game development</strong>,{" "}
+                  <strong>blockchain</strong> systems, and experimenting with{" "}
+                  <strong>AI and machine learning</strong>. I enjoy turning complex ideas into clean,
+                  functional products — and I'm always learning, always shipping.
+                </p>
+              </Stack>
+            </div>
+
+            <div>
+              <h3 className="interests-title">Current Interests &amp; Tools</h3>
+              <Inline gap="sm" wrap className="tech-list">
+                {interests.map((interest) => (
+                  <Pill key={interest}>{interest}</Pill>
+                ))}
+              </Inline>
+            </div>
           </Stack>
-        </Paper>
-      </Container>
-    </Box>
+        </Card>
+      </PageContainer>
+    </section>
   );
 };
 
