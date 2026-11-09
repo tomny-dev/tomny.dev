@@ -1,0 +1,36 @@
+name: Refresh Uzi dependency lockfile (temporary)
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/refresh-uzi-lockfile.yml'
+permissions:
+  contents: write
+jobs:
+  regenerate:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'chore/uzi-013-upgrade-20261109'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout feature branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          persist-credentials: true
+      - name: Setup Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Regenerate lockfile
+        run: npm install --package-lock-only --ignore-scripts --no-audit --no-fund
+      - name: Commit lockfile if changed
+        shell: bash
+        run: |
+          git add package-lock.json
+          if git diff --cached --quiet; then
+            echo 'Lockfile already current'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'chore(deps): regenerate lockfile for Uzi 0.13.0'
+          git push origin HEAD:chore/uzi-013-upgrade-20261109
